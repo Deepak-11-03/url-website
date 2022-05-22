@@ -12,7 +12,7 @@ mongoose.connect("mongodb+srv://user:ISjwDttcDksEnCcv@cluster0.hja9z.mongodb.net
 .then(()=>console.log("mongodb is connected"))
 .catch(err=>console.log(err))
 
-
+app.set('view engine', 'ejs');
 app.use('/',route)
 
 app.listen(process.env.PORT || 3000,(err)=> {
