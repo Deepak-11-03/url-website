@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Url shortner</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        body{
+            background-color: antiquewhite;
+        }
+        .container{
+            width: 60%;
+            height: 60%;
+            background-color: aqua;
+            position: absolute;
+              top: 40%;
+            left: 50%;
+            transform: translate(-50%,-50%)
+        }
+        h1{
+            text-align: center;
+            margin-top: 5px;
+        }
+        .shortUrl{
+            margin-top: 80px;
+            text-align: center;
+        }
+        #urlinput{
+            width: 80%;
+            outline: none;
+            padding: 4px;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            position: absolute;
+            font-size: 16px;
+        }
+        /* #output{
+            width: 40%;
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        } */
+        #submit{
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            background-color: cadetblue;
+            border: 1px solid red;
+            width: 120px;
+            padding: 3px;
+        }
+        #shortUrl{
+            width: 40%;
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        #url{
+            display: inline-block;
+            width: 250px;
+            height: 30px;
+            background-color: azure;
+        }
+        #copybtn{
+            width: 100px;
+            height: 30px;
+            margin-top: 10px;
+        }
+    </style>
+</head>    
+    <body>
+    <div class="container">
+        <form id="form" action="/url" method="post" target="_self">
+            <h1>Url Shortner</h1>
+        
+            <input type="url" id="urlinput" name="longUrl" required="required" > <br>
+            <button  id="submit">Short The URL</button><br><br>
+            
+            <div class="shortUrl">
+                <p>Your Short Url</p>       
+                    <span id="url" > {{shortUrl}}</span><br>
+                    <button type="button" id="copybtn" onclick="copyLink()">copy url</button>
+            </div>      
+        </form>
+    </div>
+  
+    <script>
+  function copyLink() {
+    let copyText = document.getElementById("url") 
+
+    var selection = window.getSelection();
+
+    var range = document.createRange();
+
+    range.selectNodeContents(copyText);
+
+    selection.removeAllRanges();
+
+    selection.addRange(range);
+
+    document.execCommand('copy');
+  }
+</script>
+   
+    </body>
+    
+</html>
