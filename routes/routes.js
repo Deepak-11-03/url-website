@@ -7,9 +7,7 @@ const router = express.Router()
 const isValidRequestBody = function (requestBody) {
     return Object.keys(requestBody).length > 0
 }
-router.get('/', (err, res) => {
-    res.render('index', { shortUrl: "" })
-})
+
 router.post('/url', async (req, res) => {
 
     try {
@@ -21,9 +19,9 @@ router.post('/url', async (req, res) => {
         if (!validUrl.isUri(longUrl)) {
             return res.status(400).send({ status: false, msg: "please provide valid url" })
         }
-        if (!isValidRequestBody(longUrl)) {
-            res.redirect('index', { "shortUrl": "" })
-        }
+        // if (!isValidRequestBody(longUrl)) {
+        //     res.redirect('index', { "shortUrl": "your short url" })
+        // }
         const baseUrl = "http://localhost:3000";
         const urlCode = shortid.generate();
         const shortUrl = baseUrl + '/' + urlCode;
@@ -33,13 +31,14 @@ router.post('/url', async (req, res) => {
             if (urlPresent) {
                 return res.render('index', { "shortUrl": urlPresent.shortUrl })
             }
+
         }
 
         let data = new urlModel({ longUrl, shortUrl, urlCode })
 
         const shortenUrl = await urlModel.create(data)
 
-        return res.render('index', { "shortUrl": shortenUrl.shortUrl })
+        return res.render('index', { "shortUrl": shortUrl })
 
 
     } catch (err) {
@@ -49,7 +48,7 @@ router.post('/url', async (req, res) => {
 )
 router.get('/:urlcode', async (req, res) => {
     try {
-        const urlCode = req.params.urlcode
+        let urlCode = req.params.urlcode
 
         let getUrl = await urlModel.findOne({ urlCode })
         if (!getUrl) {

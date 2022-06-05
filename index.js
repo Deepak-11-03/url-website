@@ -3,6 +3,11 @@ const bodyparser = require('body-parser')
 const express= require('express')
 const route= require('./routes/routes')
 const app = express()
+// const path =require('path')
+// const static_path = path.join(__dirname, 'public');
+
+
+// app.use(express.static(static_path));
 
 app.use(bodyparser.json())
 app.use(bodyparser.urlencoded({extended:true}))
@@ -12,7 +17,10 @@ mongoose.connect("mongodb+srv://user:ISjwDttcDksEnCcv@cluster0.hja9z.mongodb.net
 .then(()=>console.log("mongodb is connected"))
 .catch(err=>console.log(err))
 
-app.set('view engine', 'ejs');
+app.set('view engine', 'hbs');
+app.get('/',  (req, res)=>{
+    res.render('index')
+})
 app.use('/',route)
 
 app.listen(process.env.PORT || 3000,(err)=> {
