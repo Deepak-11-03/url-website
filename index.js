@@ -19,5 +19,5 @@ app.get('/',  (req, res)=>{
 app.use('/',route);
 
 app.listen(process.env.PORT || 3000,(err)=> {
-    console.log("connected");
+    console.log("connected")
 })
