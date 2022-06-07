@@ -1,16 +1,11 @@
 const mongoose = require('mongoose');
-const bodyparser = require('body-parser')
-const express= require('express')
-const route= require('./routes/routes')
-const app = express()
-// const path =require('path')
-// const static_path = path.join(__dirname, 'public');
+const bodyparser = require('body-parser');
+const express= require('express');
+const route= require('./routes/routes');
+const app = express();
 
-
-// app.use(express.static(static_path));
-
-app.use(bodyparser.json())
-app.use(bodyparser.urlencoded({extended:true}))
+app.use(bodyparser.json());
+app.use(bodyparser.urlencoded({extended:true}));
 
 mongoose.connect("mongodb+srv://user:ISjwDttcDksEnCcv@cluster0.hja9z.mongodb.net/group42Database?authSource=admin&replicaSet=atlas-3xefdb-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true",
 {useNewUrlparser:true})
@@ -19,10 +14,10 @@ mongoose.connect("mongodb+srv://user:ISjwDttcDksEnCcv@cluster0.hja9z.mongodb.net
 
 app.set('view engine', 'hbs');
 app.get('/',  (req, res)=>{
-    res.render('index')
+    return res.render('index');
 })
-app.use('/',route)
+app.use('/',route);
 
 app.listen(process.env.PORT || 3000,(err)=> {
-    console.log("connected to port 3000")
+    console.log("connected");
 })

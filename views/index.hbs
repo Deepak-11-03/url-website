@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Url shortner</title>
     <style>
         *{
@@ -11,16 +13,17 @@
             padding: 0px;
         }
         body{
-            background-color: antiquewhite;
+            background-color: #41B3A3;
         }
         .container{
             width: 60%;
             height: 60%;
-            background-color: aqua;
+            background-color: #85DCB0;
             position: absolute;
               top: 40%;
             left: 50%;
-            transform: translate(-50%,-50%)
+            transform: translate(-50%,-50%);
+            border-radius: 30px;
         }
         h1{
             text-align: center;
@@ -34,50 +37,60 @@
             width: 80%;
             outline: none;
             padding: 4px;
-            top: 20%;
+            top: 25%;
             left: 50%;
             transform: translate(-50%,-50%);
             position: absolute;
             font-size: 16px;
         }
-        /* #output{
-            width: 40%;
-            position: absolute;
-            top: 60%;
-            left: 50%;
-            transform: translate(-50%,-50%);
-        } */
         #submit{
             position: absolute;
             top: 30%;
             left: 50%;
             transform: translate(-50%,-50%);
-            background-color: cadetblue;
-            border: 1px solid red;
+            background-color: aqua;
+            border-radius: 10px;
             width: 120px;
             padding: 3px;
+            margin-top: 12px;
         }
-        #shortUrl{
-            width: 40%;
+        .shortUrl{
+            width: 60%;
             position: absolute;
-            top: 60%;
+            top: 39%;
             left: 50%;
             transform: translate(-50%,-50%);
         }
         #url{
+            min-width: 30%;
+            max-width: fit-content;
+            min-height: 40px;
+            max-height: fit-content;
             display: inline-block;
-            width: 250px;
-            height: 30px;
             background-color: azure;
+            word-wrap: break-word;
+            border-radius: 10px;
+            padding: 7px 5px 5px 5px;
         }
         #copybtn{
-            width: 100px;
+            width: 80px;
             height: 30px;
             margin-top: 10px;
+            background-color: aqua;
+            border-radius: 10px;
+        }
+        footer{
+            position: fixed;
+            bottom: 0;
+            text-align: center;
+            width: 100%;
+            height: 10%;
+            background-color: aqua;
         }
     </style>
 </head>    
     <body>
+       
     <div class="container">
         <form id="form" action="/url" method="post" target="_self">
             <h1>Url Shortner</h1>
@@ -88,18 +101,23 @@
             <div class="shortUrl">
                 <p>Your Short Url</p>       
                     <span id="url" > {{shortUrl}}</span><br>
-                    <button type="button" id="copybtn" onclick="copyLink()">copy url</button>
+                 
+                    <button type="button" id="copybtn" onclick="copyLink()" >copy url</button>
             </div>      
         </form>
     </div>
-  
+  <footer>
+      <h3>
+        copyright© 2022 all rights reserved   
+      </h3>
+  </footer>
     <script>
   function copyLink() {
     let copyText = document.getElementById("url") 
 
-    var selection = window.getSelection();
+    let selection = window.getSelection();
 
-    var range = document.createRange();
+    let range = document.createRange();
 
     range.selectNodeContents(copyText);
 
