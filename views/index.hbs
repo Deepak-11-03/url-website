@@ -14,27 +14,31 @@
             background-color: #41B3A3;
         }
         header{
-            background-color:#85DCB0
+            background-color:#85DCB0;
+            color: aliceblue;
+            text-align: center;
+            width: 100%;
+            height: 90px;
+        }
+        h1{
+            padding-top: 10px;
         }
         .container{
-            width: 60%;
+            width: 450px;
             height: 50%;
             background-color: #85DCB0;
             position: absolute;
-            top: 40%;
+            top: 45%;
             left: 50%;
             transform: translate(-50%,-50%);
             border-radius: 30px;
+            padding: 5px;
         }
        
-        h1{
+        h2{
             text-align: center;
-            margin-top: 15px;
+            margin-top: 10px;
             padding: 2px;
-        }
-        .shortUrl{
-            margin-top: 80px;
-            text-align: center;
         }
         #urlinput{
             width: 80%;
@@ -48,7 +52,7 @@
         }
         #submit{
             position: absolute;
-            top: 30%;
+            top: 32%;
             left: 50%;
             transform: translate(-50%,-50%);
             background-color: aqua;
@@ -58,9 +62,10 @@
             margin-top: 12px;
         }
         .shortUrl{
-            width: 60%;
+            width: 70%;
             position: absolute;
-            top: 39%;
+            text-align: center;
+            top: 65%;
             left: 50%;
             transform: translate(-50%,-50%);
         }
@@ -72,14 +77,14 @@
             display: inline-block;
             background-color: azure;
             border-radius: 10px;
-            margin: 5px;
-            padding: 7px 5px 5px 5px;
+            margin: 5px 0px 5px 0px;
+            padding: 5px 5px 0 5px;
         }
        
         #copybtn{
             width: 80px;
             height: 30px;
-            margin-top: 10px;
+            margin-top: 2px;
             background-color: aqua;
             border-radius: 10px;
         }
@@ -91,9 +96,12 @@
             height: 10%;
             background-color: aqua;
         }
-         @media only screen (max-width: 466px){
-            .container:{
-                 width: 100%;
+         @media (max-width: 466px){
+            .container{
+                 width: 95%;
+                 margin-top: 10px;
+                 margin: auto;
+             
             }
         }
     </style>
@@ -106,7 +114,7 @@
        </header>
     <div class="container">
         <form id="form" action="/url" method="post" target="_self">
-            <h1>Short your url easily</h1>
+            <h2>Short your url easily</h2>
         
             <input type="url" id="urlinput" name="longUrl" required="required" placeholder="paste long url here"> <br>
             <button  id="submit">Short The URL</button><br><br>
