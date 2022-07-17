@@ -7,6 +7,8 @@ const app = express();
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended:true}));
 
+app.use(express.static('public'));
+
 mongoose.connect("mongodb+srv://user:ISjwDttcDksEnCcv@cluster0.hja9z.mongodb.net/group42Database?authSource=admin&replicaSet=atlas-3xefdb-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true",
 {useNewUrlparser:true})
 .then(()=>console.log("mongodb is connected"))

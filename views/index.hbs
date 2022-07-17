@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="icon" type="image/x-icon" href="favicon.ico?v="+ Math.trunc(Math.random()*999)>
+    <a href="https://www.flaticon.com/free-icons/url" title="url icons"></a>
+    <meta name="description" content="This website create a long url into short url">
+    <meta name="keyword"  content="url,urlshortner,url-0" >
+    <link rel="canonical" href="index.hbs">
+    <meta name="robots" content="index,follow"/>
     <title>Url shortner</title>
     <style>
         *{
@@ -11,23 +17,23 @@
             padding: 0px;
         }
         body{
-            background-color: #41B3A3;
+            background-color: #A2C5FE #C2E9FC;
         }
         header{
-            background-color:#85DCB0;
-            color: aliceblue;
+            background-color:aqua;
+            color: rgb(0, 0, 0);
             text-align: center;
             width: 100%;
             height: 90px;
         }
         h1{
-            padding-top: 10px;
+            padding-top: 15px;
         }
         .container{
             width: 450px;
             height: 50%;
             background-color: #85DCB0;
-            position: absolute;
+            position: fixed;
             top: 45%;
             left: 50%;
             transform: translate(-50%,-50%);
@@ -94,12 +100,13 @@
             text-align: center;
             width: 100%;
             height: 10%;
-            background-color: aqua;
+            background-color: #85DCB0;
         }
          @media (max-width: 466px){
             .container{
                  width: 95%;
-                 margin-top: 10px;
+                 height: 60%;
+                 margin-top: 20px;
                  margin: auto;
              
             }
