@@ -2,21 +2,10 @@ const express = require('express');
 const urlModel = require('../Model/urlModel');
 const shortid = require('shortid');
 const router = express.Router();
-const redis = require('redis')
+
 const {promisify}= require('util')
+const redisClient=require('../redis/redis')
 
-const redisClient = redis.createClient(
-    10269,
-    "redis-10269.c264.ap-south-1-1.ec2.cloud.redislabs.com",
-    { no_ready_check: true }
-);
-redisClient.auth("YLY1q832YZYVk5eRkQouNN03ycLQbLVD", function (err) {
-    if (err) throw err;
-});
-
-redisClient.on("connect", async function () {
-    console.log("Connected to Redis..");
-});
 
 //Connection setup for redis
 

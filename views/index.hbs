@@ -165,7 +165,7 @@
             <h2>Short your url easily</h2>
 
             <input type="url" id="urlinput" name="longUrl" required="required" placeholder="paste long url here"> <br>
-            <button id="submit">Short The URL</button><br><br>
+            <button id="submit" onclick="location.href = 'http://localhost:3000/';">Short The URL</button><br><br>
 
             <div class="shortUrl">
                 <p>Your Short Url</p>
@@ -181,6 +181,7 @@
         </h4>
     </footer>
     <script>
+
          function copyLink() {
             let copyText = document.getElementById("url")
 
