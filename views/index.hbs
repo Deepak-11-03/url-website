@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="icon" type="image/x-icon" href="favicon.ico?v=" + Math.trunc(Math.random()*999)>
+    <a href="https://www.flaticon.com/free-icons/url" title="url icons"></a>
+    <meta name="description" content="This website create a long url into short url">
+    <meta name="keyword" content="url,urlshortner,url-0">
+    <link rel="canonical" href="index.hbs">
+    <meta name="robots" content="index,follow" />
+    
+    <title>Url shortner</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body {
+            background-color: #a6e1ff;
+        }
+
+        header {
+            color: rgb(0, 0, 0);
+            text-align: center;
+            width: 100%;
+            height: 90px;
+        }
+
+        h1 {
+            margin-top: 32px;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-shadow: 2px 2px 5px #ffffff;
+            color: #1a3a63;
+        }
+
+        .container {
+            width: 450px;
+            height: 50%;
+            -webkit-box-shadow: -2px -2px 42px 7px rgba(8, 71, 102, 0.77);
+            -moz-box-shadow: -2px -2px 42px 7px rgba(8, 71, 102, 0.77);
+            box-shadow: -2px -2px 42px 7px rgba(8, 71, 102, 0.77);
+            position: fixed;
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 30px;
+            padding: 5px;
+        }
+
+        h2,p {
+            text-align: center;
+            margin-top: 10px;
+            padding: 2px;
+            color: #1a3a63;
+        }
+
+        #urlinput {
+            width: 80%;
+            outline: none;
+            padding: 4px;
+            top: 25%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            position: absolute;
+            font-size: 16px;
+        }
+
+        #submit {
+            width: 120px;
+            padding: 3px;
+            margin-top: 12px;
+            position: absolute;
+            top: 32%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white; 
+            background-color: #1a3a63;
+            transition: .5s;
+            border-radius: 10px;
+            border: 1px inset #1e67c5;
+        }
+         #submit:hover,#copybtn:hover{
+            background-color: #8ca6c7;
+            color: black;
+            content: "hlo";
+         }
+        .shortUrl {
+            width: 70%;
+            position: absolute;
+            text-align: center;
+            top: 65%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #url {
+            width: 60%;
+            min-height: 25px;
+            max-height: fit-content;
+            word-wrap: break-word;
+            display: inline-block;
+            background-color: azure;
+            border-radius: 10px;
+            margin: 5px 0px 5px 0px;
+            padding: 5px 5px 0 5px;
+        }
+
+        #copybtn {
+            width: 80px;
+            height: 30px;
+            margin-top: 2px;
+            color: white;
+            background-color: #1a3a63;
+            transition: .5s;
+            border-radius: 10px;
+            border: 1px inset #1e67c5;
+            border-radius: 10px;
+        }
+
+        footer {
+            position: absolute;
+            bottom: 0;
+            color: aliceblue;
+            text-align: center;
+            width: 100%;
+            height: 10%;
+            background-color: #1a3a63;
+        }
+
+        @media (max-width: 466px) {
+            .container {
+                width: 95%;
+                height: 60%;
+                margin-top: 20px;
+                margin: auto;
+
+            }
+            h1{
+                margin-top: 10px;
+            }
+            #url{
+                min-height: 25px;
+                width: 80%;
+            }
+
+            footer{
+                position: fixed;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>
+            Url shortner
+        </h1>
+    </header>
+    <div class="container">
+        <form id="form" action="/url" method="post" target="_self">
+            <h2>Short your url easily</h2>
+
+            <input type="url" id="urlinput" name="longUrl" required="required" placeholder="paste long url here"> <br>
+            <button id="submit" onclick="location.href = 'http://localhost:3000/';">Short The URL</button><br><br>
+
+            <div class="shortUrl">
+                <p>Your Short Url</p>
+                <div id="url"> {{shortUrl}}</div><br>
+
+                <button type="button" id="copybtn" onclick="copyLink()">Copy</button>
+            </div>
+        </form>
+    </div>
+    <footer>
+        <h4>
+            copyright© 2022 all rights reserved
+        </h4>
+    </footer>
+    <script>
+
+         function copyLink() {
+            let copyText = document.getElementById("url")
+
+            let selection = window.getSelection();
+
+            let range = document.createRange();
+
+            range.selectNodeContents(copyText);
+
+            selection.removeAllRanges();
+
+            selection.addRange(range);
+
+            document.execCommand('copy');
+        }
+
+    
+        const btn = document.getElementById('copybtn');
+        btn.addEventListener('click', function handleClick() {
+        btn.textContent ='Copied';
+        }); 
+        
+    </script>
+
+</body>
+
+</html>
