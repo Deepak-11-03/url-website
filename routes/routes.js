@@ -2,10 +2,7 @@ const express = require('express');
 const urlModel = require('../Model/urlModel');
 const shortid = require('shortid');
 const router = express.Router();
-
 const {promisify}= require('util')
-// const redisClient=require('../redis/redis')
-
 const redis = require('redis')
 
 const redisClient = redis.createClient(

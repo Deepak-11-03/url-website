@@ -13,12 +13,11 @@ app.use(bodyparser.urlencoded({extended:true}));
 app.use(express.static('public'));
 
 
-const DB =process.env.DATABASE
+const DB = process.env.DATABASE
 
 mongoose.connect(DB,{
     useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,   } )
+    useUnifiedTopology: true})
 .then(()=>console.log("mongodb is connected"))
 .catch(err=>console.log(err))
 
