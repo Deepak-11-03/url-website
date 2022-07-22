@@ -14,7 +14,7 @@ const GET_ASYNC = promisify(redisClient.GET).bind(redisClient);
 
 
 
-router.post('/url', async (req, res) => {
+router.post('/', async (req, res) => {
     try {
         let longUrl = req.body.longUrl;
 
