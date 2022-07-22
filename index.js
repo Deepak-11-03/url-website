@@ -16,7 +16,7 @@ app.use(express.static('public'));
 const DB =process.env.DATABASE
 
 mongoose.connect(DB,
-{useNewUrlparser:true})
+{useNewUrlparser:true},{useUnifiedTopology: true}, {useCreateIndex: true} )
 .then(()=>console.log("mongodb is connected"))
 .catch(err=>console.log(err))
 
