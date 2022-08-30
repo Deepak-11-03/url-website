@@ -72,5 +72,4 @@ router.get('/:urlcode', async (req, res) => {
     }
 });
 
-
 module.exports = router
