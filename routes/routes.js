@@ -15,7 +15,7 @@ router.post('/', async (req, res) => {
     try {
         let longUrl = req.body.longUrl;
 
-        const baseUrl = "https://url-0.herokuapp.com";
+        const baseUrl = "https://url-5qmc.onrender.com";
         const urlCode = shortid.generate();
         const shortUrl = baseUrl + '/' + urlCode;
 
