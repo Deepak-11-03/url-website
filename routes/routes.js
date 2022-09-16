@@ -3,11 +3,9 @@ const urlModel = require('../Model/urlModel');
 const shortid = require('shortid');
 const router = express.Router();
 const {promisify}= require('util')
-const redisClient =require('../redis')
-
+const redisClient = require('../redis')
 
 //Connection setup for redis
-
 const SET_ASYNC = promisify(redisClient.SET).bind(redisClient);
 const GET_ASYNC = promisify(redisClient.GET).bind(redisClient);
 
